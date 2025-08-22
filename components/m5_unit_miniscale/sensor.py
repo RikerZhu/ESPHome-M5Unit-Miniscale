@@ -17,7 +17,7 @@ CONFIG_SCHEMA = (
         cv.Required(CONF_SCL): cv.int_,
         cv.Optional(CONF_ADDR, default=0x64): cv.int_,
     })
-    .extend(cv.polling_component_schema("1s", require_id=False))
+    .extend(cv.polling_component_schema("1s"))
 )
 
 async def to_code(config):
@@ -27,7 +27,7 @@ async def to_code(config):
         config[CONF_SCL],
         config[CONF_ADDR]
     )
-    await cg.register_component(var, config)
+    #await cg.register_component(var, config)
     await sensor.register_sensor(var, config)
 
     # 在这里让 PlatformIO 自动拉 Arduino 库
