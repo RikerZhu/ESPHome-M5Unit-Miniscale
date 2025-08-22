@@ -9,32 +9,22 @@ namespace m5_unit_miniscale {
 
 class M5UnitMiniScale : public PollingComponent, public sensor::Sensor {
  public:
-  M5UnitMiniScale(uint8_t sda, uint8_t scl, uint8_t addr) 
-    : sda_(sda), scl_(scl), addr_(addr) {}
-
   M5UnitMiniScale() = default;
   void set_i2c_params(uint8_t sda, uint8_t scl, uint8_t addr) {
     sda_ = sda;
     scl_ = scl;
     addr_ = addr;
   }
-
   void setup() override {
-    Wire.begin(this->sda_, this->scl_);
-    scale_.begin(&Wire, this->sda_, this->scl_, this->addr_);
+    Wire.begin(sda_, scl_);
+    scale_.begin(&Wire, sda_, scl_, addr_);
   }
-
   void update() override {
-    float weight = scale_.getWeight();
-    this->publish_state(weight);
+    publish_state(scale_.getWeight());
   }
-
  protected:
+  uint8_t sda_, scl_, addr_;
   UNIT_SCALES scale_;
-  uint8_t sda_;
-  uint8_t scl_;
-  uint8_t addr_;
 };
-
 }  // namespace m5_unit_miniscale
 }  // namespace esphome

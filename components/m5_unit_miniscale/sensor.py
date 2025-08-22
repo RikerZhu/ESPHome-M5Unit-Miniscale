@@ -11,10 +11,9 @@ M5UnitMiniScale = m5_unit_miniscale_ns.class_(
 )
 
 M5UnitMiniScale = M5UnitMiniScale.method(
-    "set_i2c_params",        # C++ 方法名
-    cg.void,                 # 返回类型
-    [cg.uint8, cg.uint8, cg.uint8]  # 参数类型列表
+    "set_i2c_params", cg.void, [cg.uint8, cg.uint8, cg.uint8]
 )
+
 
 CONFIG_SCHEMA = (
     sensor.sensor_schema(unit_of_measurement=UNIT_G, icon=ICON_SCALE)
@@ -29,7 +28,6 @@ CONFIG_SCHEMA = (
 async def to_code(config):
     var = cg.new_Pvariable(config[cv.CONF_ID])
     cg.add(var.set_i2c_params(config[CONF_SDA], config[CONF_SCL], config[CONF_ADDR]))
-    #await cg.register_component(var, config)
     await sensor.register_sensor(var, config)
 
     # 在这里让 PlatformIO 自动拉 Arduino 库
