@@ -7,7 +7,7 @@
 namespace esphome {
 namespace m5_unit_miniscale {
 
-class M5UnitMiniScale : public sensor::Sensor, public PollingComponent {
+class M5UnitMiniScale : public PollingComponent, public sensor::Sensor {
  public:
   M5UnitMiniScale() = default;
 
