@@ -11,7 +11,7 @@ AUTO_LOAD = [ ]
 MULTI_CONF = True
 
 # C++ namespace
-ns = cg.esphome_ns.namespace("m5_unit_miniscale")
+m5_unit_miniscale_ns = cg.esphome_ns.namespace("m5_unit_miniscale")
 M5UnitMiniScale = m5_unit_miniscale_ns.class_(
     "M5UnitMiniScale", sensor.Sensor, cg.PollingComponent
 )
