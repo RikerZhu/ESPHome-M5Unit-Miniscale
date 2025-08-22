@@ -6,14 +6,13 @@ from esphome.const import UNIT_G, ICON_SCALE, CONF_SDA, CONF_SCL
 CONF_ADDR = "address"
 
 m5_unit_miniscale_ns = cg.esphome_ns.namespace("m5_unit_miniscale")
-M5UnitMiniScale = m5_unit_miniscale_ns.class_(
-    "M5UnitMiniScale", cg.Component, sensor.Sensor
+M5UnitMiniScaleClass = m5_unit_miniscale_ns.class_(
+    "M5UnitMiniScale", cg.PollingComponent, sensor.Sensor
 )
 
-M5UnitMiniScale = M5UnitMiniScale.method(
+M5UnitMiniScaleClassMethod = M5UnitMiniScaleClass.method(
     "set_i2c_params", cg.void, [cg.uint8, cg.uint8, cg.uint8]
 )
-
 
 CONFIG_SCHEMA = (
     sensor.sensor_schema(unit_of_measurement=UNIT_G, icon=ICON_SCALE)
