@@ -25,7 +25,10 @@ CONFIG_SCHEMA = (
 )
 
 async def to_code(config):
-    var = cg.new_Pvariable(config[cv.CONF_ID], M5UnitMiniScaleClass)
+    var = cg.new_Pvariable(
+        config[cv.CONF_ID], 
+        cg.global_ns.class_("esphome::m5_unit_miniscale::M5UnitMiniScale")  # ✅ 明确指定派生类
+    )
     cg.add(var.set_i2c_params(config[CONF_SDA], config[CONF_SCL], config[CONF_ADDR]))
     await sensor.register_sensor(var, config)
 
