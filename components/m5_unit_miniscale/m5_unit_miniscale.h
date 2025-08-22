@@ -12,6 +12,13 @@ class M5UnitMiniScale : public PollingComponent, public sensor::Sensor {
   M5UnitMiniScale(uint8_t sda, uint8_t scl, uint8_t addr) 
     : sda_(sda), scl_(scl), addr_(addr) {}
 
+  M5UnitMiniScale() = default;
+  void set_i2c_params(uint8_t sda, uint8_t scl, uint8_t addr) {
+    sda_ = sda;
+    scl_ = scl;
+    addr_ = addr;
+  }
+
   void setup() override {
     Wire.begin(this->sda_, this->scl_);
     scale_.begin(&Wire, this->sda_, this->scl_, this->addr_);

@@ -21,12 +21,8 @@ CONFIG_SCHEMA = (
 )
 
 async def to_code(config):
-    var = cg.new_Pvariable(
-        config[cv.CONF_ID],
-        config[CONF_SDA],
-        config[CONF_SCL],
-        config[CONF_ADDR]
-    )
+    var = cg.new_Pvariable(config[cv.CONF_ID])
+    cg.add(var.set_i2c_params(config[CONF_SDA], config[CONF_SCL], config[CONF_ADDR]))
     #await cg.register_component(var, config)
     await sensor.register_sensor(var, config)
 
