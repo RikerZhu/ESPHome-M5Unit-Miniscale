@@ -5,11 +5,11 @@
 #include <UNIT_SCALES.h> // 来自 Arduino 库
 
 namespace esphome {
-namespace m5-unit-miniscale {
+namespace m5_unit_miniscale {
 
-class M5-Unit-MiniScale : public PollingComponent, public sensor::Sensor {
+class M5_Unit_MiniScale : public PollingComponent, public sensor::Sensor {
  public:
-  M5-Unit-MiniScale(uint8_t sda, uint8_t scl, uint8_t addr) 
+  M5_Unit_MiniScale(uint8_t sda, uint8_t scl, uint8_t addr) 
     : sda_(sda), scl_(scl), addr_(addr) {}
 
   void setup() override {
@@ -29,5 +29,5 @@ class M5-Unit-MiniScale : public PollingComponent, public sensor::Sensor {
   uint8_t addr_;
 };
 
-}  // namespace m5-unit-miniscale
+}  // namespace m5_unit_miniscale
 }  // namespace esphome
