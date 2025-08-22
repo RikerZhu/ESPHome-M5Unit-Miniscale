@@ -11,7 +11,7 @@ M5MiniScale = m5miniscale_ns.class_(
 )
 
 CONFIG_SCHEMA = (
-    sensor.sensor_schema(unit_of_measurement=UNIT_GRAMS, icon=ICON_SCALE)
+    sensor.sensor_schema(unit_of_measurement=UNIT_G, icon=ICON_SCALE)
     .extend({
         cv.Required(CONF_SDA): cv.int_,
         cv.Required(CONF_SCL): cv.int_,
