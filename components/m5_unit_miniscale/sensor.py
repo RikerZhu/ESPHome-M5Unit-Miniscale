@@ -1,16 +1,10 @@
-import esphome.config_validation as cv
 import esphome.codegen as cg
+import esphome.config_validation as cv
 from esphome.components import sensor
 from esphome.const import UNIT_G, ICON_SCALE, CONF_SDA, CONF_SCL
 
 CONF_ADDR = "address"
 
-CODEOWNERS = ["@RikerZhu"]
-DEPENDENCIES = [ ]
-AUTO_LOAD = [ ]
-MULTI_CONF = True
-
-# C++ namespace
 m5_unit_miniscale_ns = cg.esphome_ns.namespace("m5_unit_miniscale")
 M5UnitMiniScale = m5_unit_miniscale_ns.class_(
     "M5UnitMiniScale", sensor.Sensor, cg.PollingComponent
