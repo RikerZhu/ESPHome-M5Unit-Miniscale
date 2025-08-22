@@ -3,7 +3,8 @@ import esphome.codegen as cg
 from esphome.components import sensor
 from esphome.const import UNIT_G, ICON_SCALE, CONF_SDA, CONF_SCL
 
-
+CONF_ADDR = "address"
+cg.add_global(cg.global_ns.include("m5_unit_miniscale.h"))
 
 CODEOWNERS = ["@RikerZhu"]
 DEPENDENCIES = [ ]
