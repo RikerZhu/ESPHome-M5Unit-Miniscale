@@ -3,6 +3,8 @@ import esphome.config_validation as cv
 from esphome.components import sensor
 from esphome.const import UNIT_G, ICON_SCALE, CONF_SDA, CONF_SCL
 
+cg.add_global(cg.global_ns.include("m5_unit_miniscale.h"))
+
 CONF_ADDR = "address"
 
 m5_unit_miniscale_ns = cg.esphome_ns.namespace("m5_unit_miniscale")
