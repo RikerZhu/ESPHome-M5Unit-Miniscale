@@ -32,4 +32,4 @@ async def to_code(config):
 
     # 在这里让 PlatformIO 自动拉 Arduino 库
     cg.add_library("Wire", None)
-    cg.add_library("https://github.com/m5stack/M5Unit-Miniscale.git")
+    cg.add_library("https://github.com/m5stack/M5Unit-Miniscale.git", None)
