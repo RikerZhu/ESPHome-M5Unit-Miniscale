@@ -1,7 +1,7 @@
 import esphome.codegen as cg
 import esphome.config_validation as cv
 from esphome.components import sensor
-from esphome.const import UNIT_GRAMS, ICON_SCALE, CONF_SDA, CONF_SCL
+from esphome.const import UNIT_G, ICON_SCALE, CONF_SDA, CONF_SCL
 
 CONF_ADDR = "address"
 
