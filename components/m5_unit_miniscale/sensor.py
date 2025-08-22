@@ -4,7 +4,7 @@ from esphome.components import sensor
 from esphome.const import UNIT_G, ICON_SCALE, CONF_SDA, CONF_SCL
 
 CONF_ADDR = "address"
-CONF_SCALE_ID = "scale_id"
+CONF_TYPE_ID = "scale_id"
 
 m5_unit_miniscale_ns = cg.esphome_ns.namespace("m5_unit_miniscale")
 M5UnitMiniScaleClass = m5_unit_miniscale_ns.class_(
@@ -21,14 +21,14 @@ CONFIG_SCHEMA = (
         cv.Required(CONF_SDA): cv.int_,
         cv.Required(CONF_SCL): cv.int_,
         cv.Optional(CONF_ADDR, default=0x64): cv.int_,
-        cv.GenerateID(CONF_SCALE_ID): cv.declare_id(M5UnitMiniScaleClass),
+        cv.GenerateID(CONF_TYPE_ID): cv.declare_id(M5UnitMiniScaleClass),
     })
     .extend(cv.polling_component_schema("1s"))
 )
 
 async def to_code(config):
     var = cg.new_Pvariable(
-        config[cv.CONF_SCALE_ID], 
+        config[cv.CONF_TYPE_ID], 
         cg.global_ns.class_("esphome::m5_unit_miniscale::M5UnitMiniScale")  # ✅ 明确指定派生类
     )
     cg.add(var.set_i2c_params(config[CONF_SDA], config[CONF_SCL], config[CONF_ADDR]))
