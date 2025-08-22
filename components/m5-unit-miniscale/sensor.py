@@ -1,7 +1,7 @@
 import esphome.codegen as cg
 import esphome.config_validation as cv
 from esphome.components import sensor
-from esphome.const import UNIT_GRAM, ICON_SCALE, CONF_SDA, CONF_SCL
+from esphome.const import UNIT_GRAMS, ICON_SCALE, CONF_SDA, CONF_SCL
 
 CONF_ADDR = "address"
 
@@ -11,7 +11,7 @@ M5MiniScale = m5miniscale_ns.class_(
 )
 
 CONFIG_SCHEMA = (
-    sensor.sensor_schema(unit_of_measurement=UNIT_GRAM, icon=ICON_SCALE)
+    sensor.sensor_schema(unit_of_measurement=UNIT_GRAMS, icon=ICON_SCALE)
     .extend({
         cv.Required(CONF_SDA): cv.int_,
         cv.Required(CONF_SCL): cv.int_,
