@@ -5,9 +5,9 @@ from esphome.const import UNIT_G, ICON_SCALE, CONF_SDA, CONF_SCL
 
 CONF_ADDR = "address"
 
-m5miniscale_ns = cg.esphome_ns.namespace("m5miniscale")
-M5MiniScale = m5miniscale_ns.class_(
-    "M5MiniScale", sensor.Sensor, cg.PollingComponent
+m5_unit_miniscale_ns = cg.esphome_ns.namespace("m5-unit-miniscale")
+M5_Unit_MiniScale = m5_unit_miniscale_ns.class_(
+    "M5-Unit-MiniScale", sensor.Sensor, cg.PollingComponent
 )
 
 CONFIG_SCHEMA = (
