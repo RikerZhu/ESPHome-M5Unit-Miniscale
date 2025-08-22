@@ -10,6 +10,12 @@ M5UnitMiniScale = m5_unit_miniscale_ns.class_(
     "M5UnitMiniScale", sensor.Sensor, cg.PollingComponent
 )
 
+M5UnitMiniScale = M5UnitMiniScale.method(
+    "set_i2c_params",        # C++ 方法名
+    cg.void,                 # 返回类型
+    [cg.uint8, cg.uint8, cg.uint8]  # 参数类型列表
+)
+
 CONFIG_SCHEMA = (
     sensor.sensor_schema(unit_of_measurement=UNIT_G, icon=ICON_SCALE)
     .extend({
